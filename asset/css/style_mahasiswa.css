@@ -1,0 +1,12 @@
+/*JUDUL*/
+h1 {
+    text-align: center;
+}
+a:hover {
+    color: brown;
+    font-size: 15px;
+    
+}
+.link {
+    margin: 0 auto;
+}
