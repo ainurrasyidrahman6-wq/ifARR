@@ -11,11 +11,10 @@
     <table border="1px" cellspacing="0" cellpadding="10px">
         <tr>
             <td>
-                <a href="index.html">Home</a>
-            </td>
-            <td><a href="Profile.html">Profile</a></td>
-            <td><a href="contact.html">contact</a></td>
-            <td><a href="mahasiswa.html">Mahasiswa</a></td>
+                <a href="index.php">Home</a></td>
+            <td><a href="Profile.php">Profile</a></td>
+            <td><a href="contact.php">contact</a></td>
+            <td><a href="mahasiswa.php">Mahasiswa</a></td>
         </tr>
     </table>
 </body>
