@@ -1,3 +1,37 @@
+<?php
+
+
+    $koneksi = mysqli_connect("localhost", "root", "root", "ifARR");
+
+  //  if($koneksi)
+    //    {
+      //      echo "koneksi berhasil";
+        //}
+
+
+    $query = "SELECT * FROM mahasiswa";
+
+    $result = mysqli_query($koneksi, $query);
+
+    /// ambil data (fetch) mahasiswa dari lamari result
+
+    /// mysqli_fetch_row
+    /// mysqli_fetch_assoc
+    /// mysqli_fetch_object
+    /// mysqli_fetch_array
+
+    // while ($mhs = mysqli_fetch_assoc($result))
+    //     {
+    //         var_dump($mhs);
+    //     }
+    
+    
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,29 +56,37 @@
     <a href="inputdata.php">
         <button>Tambah Data</button>
     </a>
-    <table border="1" cellpadding="5px">
-        <tr>
-            <th rowspan="2">No</th>
-            <th rowspan="2">Nama</th>
-            <th rowspan="2">NIM</th>
-            <th rowspan="2">Foto</th>
-            <th colspan="3">Nilai</th>
-        </tr>
-        <tr>
-            <th>UTS</th>
-            <th>UAS</th>
-            <th>Tugas</th>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td>Muhammad Fathur rozak</td>
-            <td>13182420028</td>
-            <td><img src="asset/images/lebron james.jpeg" width="70px"</td>
-            <td align="center">90</td>
-            <td align="center">90</td>
-            <td align="center">88</td>
-        </tr>
-    </table>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>Jurusan</th>
+        <th>Email</th>
+        <th>No HP</th>
+        <th>Foto</th>
+    </tr>
+
+    <?php
+    $no = 1;
+    while($mhs = mysqli_fetch_assoc($result))
+    {
+    ?>
+    <tr>
+        <td align="center"><?= $no++; ?></td>
+        <td><?= $mhs["nama"]; ?></td>
+        <td align="center"><?= $mhs["nim"]; ?></td>
+        <td><?= $mhs["jurusan"]; ?></td>
+        <td><?= $mhs["email"]; ?></td>
+        <td><?= $mhs["no_hp"]; ?></td>
+        <td align="center">
+            <img src="asset/images/<?= $mhs["foto"]; ?>" width="70">
+        </td>
+    </tr>
+    <?php
+    }
+    ?>
+</table>
 
 <hr>
 <br>
