@@ -1,32 +1,29 @@
 <?php
 
-
-    $koneksi = mysqli_connect("localhost", "root", "root", "ifARR");
-
-  //  if($koneksi)
-    //    {
-      //      echo "koneksi berhasil";
-        //}
-
-
+/*$connection = mysqli_connect("localhost", "root", "", "ifARR");
+if ($connection) {
+    echo"koneksi berhasil";
     $query = "SELECT * FROM mahasiswa";
+    $result = mysqli_query($connection, $query);
 
-    $result = mysqli_query($koneksi, $query);
+    ///mysqli_fetch_arrya
+    ///mysqli_fetch_assoc
+    ///mysqli_fetch_object
+    ///mysqli_fetch_row
 
-    /// ambil data (fetch) mahasiswa dari lamari result
-
-    /// mysqli_fetch_row
-    /// mysqli_fetch_assoc
-    /// mysqli_fetch_object
-    /// mysqli_fetch_array
-
-    // while ($mhs = mysqli_fetch_assoc($result))
-    //     {
-    //         var_dump($mhs);
-    //     }
     
     
+}*/
+
+    require 'fungsi.php';
+    $qmahasiswa = "SELECT * FROM mahasiswa";
+    $mahasiswas = tampildata($qmahasiswa);
+
+
+
+
 ?>
+
 
 
 
@@ -68,25 +65,27 @@
     </tr>
 
     <?php
-    $no = 1;
-    while($mhs = mysqli_fetch_assoc($result))
-    {
+    $i = 1;
+    foreach ($mahasiswas as $mhs) {
     ?>
-    <tr>
-        <td align="center"><?= $no++; ?></td>
-        <td><?= $mhs["nama"]; ?></td>
-        <td align="center"><?= $mhs["nim"]; ?></td>
-        <td><?= $mhs["jurusan"]; ?></td>
-        <td><?= $mhs["email"]; ?></td>
-        <td><?= $mhs["no_hp"]; ?></td>
+       <tr>
+        <td align="center"><?php echo $i++; ?></td>
+        <td align="center"><?= $mhs['nama']; ?></td>
+        <td align="center"><?= $mhs['nim']; ?></td>
         <td align="center">
-            <img src="asset/images/<?= $mhs["foto"]; ?>" width="70">
+        <img src="asset/images/ambarus.jpg" width="70">
+        </td>
+        <td align="center"><?= $mhs['jurusan']; ?></td>
+        <td align="center"><?= $mhs['email']; ?></td>
+        <td align="center"><?= $mhs['no_hp']; ?></td>
+        <td>
+        <a href="editdata.php?id=<?= $mhs['id']; ?>">Edit</a> |
+        <a href="deletedata.php?id=<?= $mhs['id']; ?>">Delete</a>
         </td>
     </tr>
-    <?php
-    }
-    ?>
+  <?php } ?>
 </table>
+
 
 <hr>
 <br>
