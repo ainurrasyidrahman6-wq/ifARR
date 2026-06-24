@@ -68,20 +68,20 @@ if ($connection) {
     $i = 1;
     foreach ($mahasiswas as $mhs) {
     ?>
-       <tr>
-        <td align="center"><?php echo $i++; ?></td>
-        <td align="center"><?= $mhs['nama']; ?></td>
-        <td align="center"><?= $mhs['nim']; ?></td>
-        <td align="center">
-        <img src="asset/images/ambarus.jpg" width="70">
-        </td>
-        <td align="center"><?= $mhs['jurusan']; ?></td>
-        <td align="center"><?= $mhs['email']; ?></td>
-        <td align="center"><?= $mhs['no_hp']; ?></td>
-        <td>
-        <a href="editdata.php?id=<?= $mhs['id']; ?>">Edit</a> |
-        <a href="deletedata.php?id=<?= $mhs['id']; ?>">Delete</a>
-        </td>
+<tr>
+    <td align="center"><?= $i++; ?></td>
+    <td align="center"><?= $mhs['nama']; ?></td>
+    <td align="center"><?= $mhs['nim']; ?></td>
+    <td align="center"><?= $mhs['jurusan']; ?></td>
+    <td align="center"><?= $mhs['email']; ?></td>
+    <td align="center"><?= $mhs['no_hp']; ?></td>
+    <td align="center">
+        <img src="asset/images/<?= $mhs['foto']; ?>" width="70">
+    </td>
+
+    <td align="center">
+        <a href="editdata.php?id=<?= $mhs["id"]; ?>"><button>Edit</button></a> |
+        <a href="deletedata.php?id=<?= $mhs["id"]; ?>"onclick="return confirm ('Yaqueeenn???')" ><button>Delete</button></a></td>
     </tr>
   <?php } ?>
 </table>
